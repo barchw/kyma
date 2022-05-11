@@ -38,7 +38,11 @@ spec:
           command:
             - /manager
           args:
+<<<<<<< HEAD
             - --metrics-addr=127.0.0.1:8080
+=======
+            - --metrics-addr=0.0.0.0:{{ .Values.port.metrics }}
+>>>>>>> 268ceb293b114869a8bc7540bfa97a1aef18114c
             - --hydra-url=http://{{ .Values.adminService.name | default ( include "hydra-maester.adminService" . ) }}
             - --hydra-port={{ .Values.adminService.port | default 4445 }}
             {{- if .Values.forwardedProto }}
@@ -54,6 +58,12 @@ spec:
             {{- toYaml .Values.deployment.resources | nindent 12 }}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+<<<<<<< HEAD
+=======
+          ports:
+            - containerPort: {{ .Values.port.metrics }}
+              name: metrics
+>>>>>>> 268ceb293b114869a8bc7540bfa97a1aef18114c
           {{- if .Values.deployment.securityContext }}
           securityContext:
             {{- toYaml .Values.deployment.securityContext | nindent 12 }}
