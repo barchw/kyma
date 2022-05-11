@@ -25,11 +25,7 @@ spec:
         - {{ . | quote }}
         {{- end }}
       secretName: {{ .secretName }}
-<<<<<<< HEAD
     {{- end }}  
-=======
-    {{- end }}
->>>>>>> 268ceb293b114869a8bc7540bfa97a1aef18114c
   {{- end }}
   rules:
     {{- range .Values.ingress.public.hosts }}
